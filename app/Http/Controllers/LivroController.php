@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use function redirect;
 use function view;
 use App\Models\Livro;
+use App\Http\Requests\StoreUpdateLivro;
 
 class LivroController extends Controller
 {
@@ -19,10 +20,10 @@ class LivroController extends Controller
 
     }
 
-    public function store(Request $request) {
+    public function store( StoreUpdateLivro $request) {
         Livro::create($request->all());
         
-        // return view
+        return redirect()->route('livro.index'); 
     }
 
 }
