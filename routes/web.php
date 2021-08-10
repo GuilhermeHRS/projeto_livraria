@@ -21,9 +21,15 @@ Route::get('/', function () {
 // ROTAS PARA LIVRO
 use App\Http\Controllers\LivroController;
 Route::get('/livro', [LivroController::class, 'index'])->name('livro.index');
-Route::get('/livro/create', [LivroController::class, 'create'])->name('livro.create');
 
+Route::get('/livro/create', [LivroController::class, 'create'])->name('livro.create');
 Route::post('/livro/store', [LivroController::class, 'store'])->name('livro.store');
+
+Route::get('/livro/{id}', [LivroController::class, 'show'])->name('livro.show');
+Route::delete('/livro/{id}', [LivroController::class, 'destroy'])->name('livro.destroy');
+
+Route::get('/livro/edit/{id}', [LivroController::class, 'edit'])->name('livro.edit');
+Route::put('/livro/update/{id}', [LivroController::class, 'update'])->name('livro.update');
 
 
 
